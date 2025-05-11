@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block title %}
+Advisor Support
+{% endblock title %}
+{% block body %}
+
+
+
+<div class="container mt-2">
+  <hr>
+<h1 class="text-center">Advisor Support </h1>
+<p class="text-center">Assign the task for completion </p>
+<hr>
+<div class="row">
+
+<div class="col-md-4"></div>
+<div class="col-md-4">
+ 
+    <form action="/advisorsupport/" method="post">{% csrf_token %}
+        {% include 'messages.html' %}
+        <br />
+        <label for="">Name</label>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control p-2 mb-3"
+            id="name"
+            name="name"
+            placeholder="Enter name"
+            value="{{user.first_name}} {{user.last_name}}"
+            required
+          />
+        </div>
+        <label for="email">Email</label>
+        <div class="form-group">
+          <input
+            type="email"
+            class="form-control p-2 mb-3"
+            id="email"
+            name="email"
+            placeholder="Enter email"
+            value="{{user.email}}"
+            required
+          />
+        </div>
+
+        <label for="pass1">Task Name </label>
+        <div class="form-group">
+          
+          <input
+            type="text"
+            class="form-control p-2 mb-3"
+    
+            name="taskname"
+            placeholder="Enter the task name"
+            required            
+          />
+         
+        </div>
+        <br/>
+        <label for="td">Task Description </label>
+        <div class="form-group">
+          
+       <textarea name="taskdesc"  class="form-control p-2 mb-3" id="" cols="2" rows="2" required></textarea>
+         
+        </div>
+        <br/>
+      
+        <label for="pass1">Task Assigned By </label>
+        
+        <select class="form-select" id="pass1" name="taskassignee" required>
+                   
+            <option selected>Select</option>
+            {% for u in users %}
+            <option value="{{u.username}}">{{u.username}}</option>
+            {% endfor %}
+            
+           
+          </select>
+        <br/>
+ 
+        <div class="d-grid gap-2 mb-3">
+        <button type="submit" class="btn btn-primary">Assign Task</button>
+    </div>   
+        <br />
+   
+ 
+      </form>
+
+
+
+</div>
+<div class="col-md-4"></div>
+
+
+</div>
+<br>
+
+</div>
+{% endblock body %}

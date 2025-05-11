@@ -1,0 +1,251 @@
+{% extends 'base.html' %} 
+{% block title %} Profile {% endblock title %} 
+{% block body %}
+<br>
+<br>
+  {% for data in datas %}
+   <section id="faq" class="faq">
+    {% include "messages.html" %}
+
+    <div class="container">
+
+      <div class="row gy-4">
+
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="content px-xl-5">
+            {% if  data.profilepic %}
+            <img src="{{data.profilepic.url}}" class="profileimage" alt="">
+            {% else %}
+            <img src="/static/assets/img/profile.jpg" class="profileimage" alt="">
+            {% endif %}
+            <h3 class="text-center"><strong> {{data.name}}</strong></h3>
+            <p class="text-center">
+             {{data.summary}}
+            </p>
+            <ul type="circle">
+              <li><b>Email</b> : {{data.email}}</li>
+              <li><b>Mobile </b>:{{data.phone}}</li>
+              <li><b>Alternate Number</b> : {{data.alternateNumber}}</li>
+            </ul>
+
+            <div class="d-grid gap-2 col-6 mx-auto">
+              <a href="/updateprofile/{{data.email}}" class="btn btn-success" type="button">Update Profile</a>
+             
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="faq-container">
+            <div class="faq-item faq-active">
+              <h3><span class="num">1.</span> <span>Basic Details</span></h3>
+              <div class="faq-content">
+                <p><b>Name</b> : {{data.name}}</p>
+                <hr>
+                <p><b>Role</b> : {{data.role}}</p>
+                <hr>
+                <p><b>Summary</b> : {{data.summary}}</p>
+                <hr>
+                <p><b>Address</b> : <em>{{data.address}}</em></p>
+               
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div><!-- End Faq item-->
+
+            <div class="faq-item">
+              <h3><span class="num">2.</span> <span>Education</span></h3>
+
+              <div class="faq-content">
+               <hr>
+               <h3 class="text-success"><b>X th</b></h3>
+                  <hr>
+            
+                <p> <b>Passing Out Year</b>  {{data.xdate}}</p>
+                <hr>
+               
+                <p><em>{{data.schoolName}} | {{data.xcity}}</em></p>
+                <hr>
+                
+                 <p><b> Course :</b> {{data.xcourse}} </p>
+             
+                 <hr>
+                <p><b>Percentage : </b>{{data.xpercentage}} % </p>
+                <hr>
+                
+              </div>
+              
+          <div class="faq-content">
+            <h3 class="text-success"><b>XII</b></h3>
+            <hr>
+            <p>{{data.xiidate}}</p>
+            <hr>
+            <p><em>{{data.collegeName}} | {{data.xiicity}}</em></p>
+            <hr>
+            <p><b>Course : </b>{{data.xiicourse}} </p>
+            <hr>
+            <p><b>Percentage :</b> {{data.xiipercentage}} %</p>
+            <hr>
+          </div>
+          <div class="faq-content">
+            <h3 class="text-success"><b>Graduation</b></h3>
+            <hr>
+            <p> {{data.startdate}} - {{data.enddate}}</p>
+            <hr>
+            <p><em>{{data.universityName}} | {{data.universitycity}}</em></p>
+            <hr>
+            <p><b>Course : </b>{{data.branch}} </p>
+            <hr>
+            <p><b>Percentage :</b> {{data.universitypercentage}} %</p>
+            <hr>
+          </div>
+          <div class="faq-content">
+            <h3 class="text-success"><b>POST Graduation / Masters</b></h3>
+            <hr>
+            <p>{{data.mstartdate}} - {{data.menddate}}</p>
+            <hr>
+            <p><em>{{data.muniversityName}} | {{data.muniversitycity}}</em></p>
+            <hr>
+            <p><b>Course :</b> {{data.mbranch}} </p>
+            <hr>
+            <p><b>Percentage :</b> {{data.muniversitypercentage}} %</p>
+            <hr>
+          </div>
+
+         
+
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+
+            <div class="faq-item">
+              <h3><span class="num">3.</span> <span>Skills</span></h3>
+              <div class="faq-content">
+                <p>{{data.skills}}</p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+
+            <div class="faq-item">
+              <h3><span class="num">4.</span> <span>Internships</span></h3>
+              <div class="faq-content">
+                <h3 class="text-success">{{data.i1}}</h3>  
+                <p><em>{{data.i1d}}</em></p>
+                <hr>
+                <h3 class="text-success">{{data.i2}}</h3>  
+                <p><em>{{data.i2d}}</em></p> 
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+
+            <div class="faq-item">
+              <h3><span class="num">5.</span> <span>Projects</span></h3>
+              <div class="faq-content">
+                <h3 class="text-success">{{data.p1}}</h3>  
+                <p><em>{{data.p1d}}</em></p>
+                <hr>
+                <h3 class="text-success">{{data.p2}}</h3>  
+                <p><em>{{data.p2d}}</em></p>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+            <div class="faq-item">
+              <h3><span class="num">6.</span> <span>Projects Links</span></h3>
+              <div class="faq-content">
+                <hr>
+                <h3 class="text-success"><a href="{{data.p1l}}">Project-1 link</a></h3>  
+               
+                <hr>
+                <h3 class="text-success"><a href="{{data.p2l}}">Project-2 link</a></h3>  
+           
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+
+            <div class="faq-item">
+              <h3><span class="num">7.</span> <span>Profile Links</span></h3>
+              <div class="faq-content">
+             
+                <h3 class="text-info"> <a href="{{data.github}}"> <b>Githib</b> </a></h3>
+                <h3 class="text-info"><a href="{{data.linkedin}}"><b>LinkedIn</b></a></h3>
+                <h3 class="text-info"><a href="{{data.facebook}}"><b>Facebook</b></a></h3>
+                <h3 class="text-info"><a href="{{data.instagram}}"><b>Instagram</b></a></h3>
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+
+          
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+  {% endfor %}
+<hr>
+
+   <section id="faq" class="faq">
+    {% include "messages.html" %}
+
+    <div class="container">
+
+      <div class="row gy-4">
+
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="content px-xl-5">
+            <img src="/static/assets/img/certificate.avif" class="profileimage" alt="">
+            <h3 class="text-center"><strong> {{data.name}}</strong></h3>
+            <p class="text-center">
+             {{data.summary}}
+            </p>
+            <ul type="circle">
+              <h1 class="text-center text-success"><b>Certifications</b></h1>
+          
+            </ul>
+
+            <div class="d-grid gap-2 col-6 mx-auto">
+              <a href="/submittask" class="btn btn-success" type="button">Upload Certifications Tasks</a>
+             
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="faq-container">
+            <div class="faq-item">
+              <h3><span class="num"></span> <span>Tasks Completion Certifications</span></h3>
+              <div class="faq-content">
+             
+                 <hr>
+
+{% for c in coursecertificates %}
+<h3 class="text-success">Course Assigned Id {{c.id}} </h3>
+<p>1. {{c.courseName}}</a></p>
+<p><b>Score:</b> {{c.courseScore}}</a></p>
+<p><a class="btn btn-outline btn-dark btn-sm" href="{{c.courseCertificate.url}}">View Certificate</a></p>
+<hr>
+{% endfor %}
+                 
+               
+                 
+                  <hr>
+
+
+
+              </div>
+              <i class="faq-toggle bi bi-chevron-right"></i>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+{% endblock body %}

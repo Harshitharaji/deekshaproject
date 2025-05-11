@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %}
+Assessments Results
+{% endblock title %}
+{% block body %}
+
+
+
+<div class="container mt-2">
+  <hr>
+<h1 class="text-center">Personal Development Plan Suggested Based On Your Result</h1>
+<hr>
+<div class="row">
+ {% include "messages.html" %}
+    {% for d in data %}
+    <div class="col-md-4">
+        <div class="card" style="width: 25rem;">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><h2><b>Course : </b>{{d.courseTitle}}</h2></li>
+              <li class="list-group-item"><b>Obtained Score : </b>{{d.obtainedScore}}</li>
+              <li class="list-group-item"><b>Total Score : </b>{{d.score}}</li>
+              <li class="list-group-item"><b>Percentage % : </b>{{d.percentageObtained}}</li>
+              <li class="list-group-item"><b>Result : </b>{{d.result}}</li>
+
+
+             
+              <li class="list-group-item"><b> Progress Alert : </b>
+                
+                {% if d.percentageObtained  < 75 %}
+                <span class="badge rounded-pill text-bg-danger">.</span>
+                <span class="badge rounded-pill text-bg-danger">.</span>
+                <span class="badge rounded-pill text-bg-secondary">.</span>
+                
+                
+                {% else %}
+              
+                <span class="badge rounded-pill text-bg-secondary">.</span>
+                <span class="badge rounded-pill text-bg-success">.</span>
+                <span class="badge rounded-pill text-bg-success">.</span>
+                {% endif %}
+
+
+
+                </span></li>
+
+
+
+
+
+
+              <li class="list-group-item"><b>Improvement Area : </b>{{d.improvementPlans}}</li>
+              <li class="list-group-item"><b>Attempted On : </b>{{d.created_at}}</li>
+            </ul>
+          </div>
+    </div>
+    {% endfor %}
+
+    <br>
+    <br>
+    <hr>
+    <br>
+    <!--<h1>Assign PDP Task</h1>-->
+    <!--<h1>Development in Progress</h1>-->
+</div>
+<br>
+
+</div>
+{% endblock body %}

@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% block title %}
+Register
+{% endblock title %}
+
+{% block firstSection %}
+<section id="about">
+  <div class="container" data-aos="fade-up">
+    <div class="row">
+      <div class="col-lg-6 about-img">
+        <img src="/static/assets/img/one.jpg" alt="">
+      </div>
+      <div class="col-lg-6 content">
+
+    <h1 class="text-center">Register</h1>
+
+  
+ 
+  <form action="/auth/register/" method="post">{% csrf_token %}
+    {% include 'messages.html' %}
+    <br />
+    <label for="email">Name</label>
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control p-2 mb-3"
+        id="name"
+        name="name"
+        placeholder="Enter name"
+        required
+      />
+    </div>
+    <label for="email">Email</label>
+    <div class="form-group">
+      <input
+        type="email"
+        class="form-control p-2 mb-3"
+        id="email"
+        name="email"
+        placeholder="Enter email"
+        required
+      />
+    </div>
+    <label for="pass1">Password </label>
+    <div class="form-group">
+      
+      <input
+        type="password"
+        class="form-control p-2 mb-3"
+        id="pass1"
+        name="pass1"
+        placeholder="Password must be atleast 5 characters"
+        required
+        
+      />
+      <input type="checkbox"  onclick="showPassword()"><span id="sp">Show Password</span><i class="fa-solid fa-eye"></i>
+      <br>
+     
+      <small>Password must include atleast [1-9][a-z][A-z][_$@]</small>
+    </div>
+    <br/>
+    <label for="pass2">Confirm Password</label>
+    <div class="form-group">
+      <input
+        type="password"
+        class="form-control p-2 mb-3"
+        id="pass2"
+        name="pass2"
+        placeholder="Confirm Password"
+        required
+      />
+    </div>
+    <br />
+    <div class="d-grid gap-2 mb-3">
+    <button type="submit" class="btn btn-primary">Register</button>
+</div>   
+    <br />
+    Already User? <a href="/auth/signin/">Signin</a>
+    <br />
+  </form>
+
+</div>
+
+</div>
+
+</div>
+</section>
+{% endblock firstSection %}
+
+
+{% block Scripts %}
+<script>
+function showPassword(){
+  var x = document.getElementById("pass1");
+  var z = document.getElementById("pass2");
+  var y = document.getElementById("sp");
+  if (x.type === "password" && z.type==="password") {
+    x.type = "text";
+    z.type="text";
+    y.innerText="Hide Password";
+  } else {
+    x.type = "password";
+    z.type="password";
+    y.innerText="Show Password";
+  }
+}
+</script>
+{% endblock Scripts %}

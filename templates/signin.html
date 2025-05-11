@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %}
+Signin
+{% endblock title %}
+
+{% block firstSection %}
+<section id="about">
+  <div class="container" data-aos="fade-up">
+    <div class="row">
+      <div class="col-lg-6 about-img">
+        <img src="/static/assets/img/one.jpg" alt="">
+      </div>
+      <div class="col-lg-6 content">
+  <form action="/auth/signin/" method="post">{% csrf_token %}
+    {% include 'messages.html' %}
+    <br />
+
+   <h1  class="text-center">Signin</h1>
+    <label for="email">Email</label>
+    <div class="form-group">
+      <input
+        type="email"
+        class="form-control p-2"
+        id="email"
+        name="email"
+        required
+      />
+    </div>
+    <label for="pass1">Password</label>
+    <div class="form-group">
+      <input
+        type="password"
+        class="form-control p-2"
+        id="pass1"
+        name="pass1"
+        required
+      />
+    </div>
+  
+    <br />
+    <div class="d-grid gap-2">
+    <button type="submit" class="btn btn-primary">SignIn</button>
+</div>   
+    <br />
+    New User? <a href="/auth/register/">Register</a>
+    <br />
+    Forget Password <a href="/auth/request-reset-email/">Click</a>
+    <br />
+</div>   
+  
+  </form>
+</div>
+
+</div>
+
+</div>
+</section>
+
+{% endblock firstSection %}
+

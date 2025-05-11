@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% block title %}
+Task Submit
+{% endblock title %}
+{% block body %}
+
+
+
+<div class="container mt-2">
+  <hr>
+<h1 class="text-center">Submit Task Assigned for You </h1>
+<p class="text-center">All the best </p>
+<hr>
+<div class="row">
+
+<div class="col-md-4"></div>
+<div class="col-md-4">
+ 
+    <form action="/submittask/" method="post" enctype="multipart/form-data">{% csrf_token %}
+        {% include 'messages.html' %}
+        <br />
+        <label for="">Name</label>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control p-2 mb-3"
+            id="name"
+            name="name"
+            placeholder="Enter name"
+            value="{{user.first_name}} {{user.last_name}}"
+            required
+          />
+        </div>
+        <label for="email">Email</label>
+        <div class="form-group">
+          <input
+            type="email"
+            class="form-control p-2 mb-3"
+            id="email"
+            name="email"
+            placeholder="Enter email"
+            value="{{user.email}}"
+            required
+          />
+        </div>
+
+      
+        <br/>
+      
+        <label for="pass1">Task Name</label>
+        
+        <select class="form-select" id="pass1" name="taskname" required>
+                   
+            <option selected>Select</option>
+            {% for d in data %}
+            <option value="{{d.taskName}}">{{d.taskName}}</option>
+            {% endfor %}
+            
+           
+          </select>
+        <br/>
+
+        <label for="scoregrade">Score/Grade</label>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control p-2 mb-3"
+            id="scoregrade"
+            name="scoregrade"
+            placeholder="Enter Score or Grade Obtained"
+        
+            required
+          />
+        </div>
+        <br>
+        <label for="email">Upload Certificate</label>
+        <div class="form-group">
+            <input type="file" class="form-control p-2 mb-3" name="certificate" required>
+          
+          </div>
+
+
+<br>
+
+ 
+        <div class="d-grid gap-2 mb-3">
+        <button type="submit" class="btn btn-primary">Submit Task</button>
+    </div>   
+        <br />
+   
+ 
+      </form>
+
+
+
+</div>
+<div class="col-md-4"></div>
+
+
+</div>
+<br>
+
+</div>
+{% endblock body %}

@@ -1,0 +1,599 @@
+{% extends 'base.html' %} 
+{% block title %} Create Profile {% endblock title %} 
+{% block body %}
+
+
+
+
+
+<section id="faq" class="faq">
+  <form action="/createprofile/" method="post">{% csrf_token %}
+  {% include "messages.html" %}
+
+  <div class="container">
+
+    <div class="row gy-4">
+
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="content px-xl-5">
+          <img src="/static/assets/img/profile.jpg" class="profileimage" alt="">
+          <h3 class="text-center"><strong>Create Profile</strong></h3>
+       <p>Make Sure Before submitting you fill all mandatory fields *</p>
+
+          <div class="d-grid gap-2 col-6 mx-auto">
+           
+           
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+
+        <div class="faq-container">
+          <div class="faq-item faq-active">
+            <h3><span class="num">1.</span> <span>Basic Details</span></h3>
+            <div class="faq-content">
+              <div class="form-group">
+                <label for="name"><span>*</span>Name</label>
+                <input
+                  type="text"
+                  class="form-control mb-2 mt-3"
+                  id="name"
+                  name="name"
+                  placeholder="Enter your name"
+                  required
+                  
+                />
+              </div>
+              <div class="form-group">
+                <label for="email"><span>*</span> Email</label>
+                <input
+                  type="email"
+                  class="form-control mb-2 mt-3"
+                  id="email"
+                  placeholder="Enter your email"
+                  name="email"
+                  value="{{user.email}}"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="phone"><span>*</span> Phone</label>
+                <input
+                  type="tel"
+                  class="form-control mb-2 mt-3"
+                  id="phone"
+                  name="phone"
+                  placeholder="Enter your phone number"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="alternateNumber">Alternate Number </label>
+                <input
+                  type="tel"
+                  class="form-control mb-2 mt-3"
+                  id="alternateNumber"
+                  name="alternateNumber"
+                  placeholder="Enter your Alternate number"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="address"><span>*</span> Address</label>
+                <textarea
+                  class="form-control mb-2 mt-3"
+                  id="address"
+                  name="address"
+                  rows="4"
+                  placeholder="Enter a address"
+                ></textarea>
+              </div>
+             
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3><span class="num">2.</span> <span>Education</span></h3>
+
+            <div class="faq-content">
+        
+             <div class="form-group">
+              <label for="schoolName"><span>*</span> X School Name</label>
+              <input
+                type="text"
+                class="form-control mb-2 mt-3"
+                id="schoolName"
+                name="schoolName"
+                placeholder="Enter your School Name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="xpercentage"><span>*</span> Percentage % </label>
+              <input
+                type="number"
+                class="form-control mb-2 mt-3"
+                id="xpercentage"
+                placeholder="Enter your X Percentage"
+                name="xpercentage"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="xcourse"><span>*</span> Course</label>
+              <input
+                type="text"
+                class="form-control mb-2 mt-3"
+                id="xcourse"
+                name="xcourse"
+                placeholder="Enter the courses"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="xdate"><span>*</span> Passed Out year </label>
+              <input
+                type="date"
+                class="form-control mb-2 mt-3"
+                id="xdate"
+                name="xdate"
+                required
+              />
+            </div>
+      
+            <div class="form-group">
+              <label for="xcity"><span>*</span> City</label>
+              <input
+                class="form-control mb-2 mt-3"
+                id="xcity"
+                name="xcity"
+                placeholder="Enter a location"
+                required
+              />
+            </div>
+      
+            <br />
+          </div>
+      
+          <div class="faq-content">
+            <h2>College Details</h2>
+   
+            <div class="form-group">
+              <label for="schoolName"><span>*</span> XII College Name</label>
+              <input
+                type="text"
+                class="form-control mb-2 mt-3"
+                id="collegeName"
+                name="collegeName"
+                placeholder="Enter your College Name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="xiipercentage"><span>*</span> Percentage % </label>
+              <input
+                type="number"
+                class="form-control mb-2 mt-3"
+                id="xiipercentage"
+                placeholder="Enter your XII Percentage"
+                name="xiipercentage"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="xiicourse"><span>*</span> Course</label>
+              <input
+                type="text"
+                class="form-control mb-2 mt-3"
+                id="xiicourse"
+                name="xiicourse"
+                placeholder="Enter the courses"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="xiidate"><span>*</span> Passed Out year </label>
+              <input
+                type="date"
+                class="form-control mb-2 mt-3"
+                id="xiidate"
+                name="xiidate"
+                required
+              />
+            </div>
+      
+            <div class="form-group">
+              <label for="xiicity"><span>*</span> City</label>
+              <input
+                class="form-control mb-2 mt-3"
+                id="xiicity"
+                name="xiicity"
+                placeholder="Enter a collage location"
+                required
+              />
+            </div>
+      
+            <br />
+          </div>
+      
+          <div class="faq-content">
+            <h2>University Details</h2>
+       
+            <div class="form-group">
+              <label for="universityName"><span>*</span> University College Name</label>
+              <input
+                type="text"
+                class="form-control mb-2 mt-3"
+                id="universityName"
+                name="universityName"
+                placeholder="Enter your university name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="universitypercentage"><span>*</span> Percentage % </label>
+              <input
+                type="number"
+                class="form-control mb-2 mt-3"
+                id="universitypercentage"
+                placeholder="Enter your university Percentage"
+                name="universitypercentage"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="branch"><span>*</span> Branch</label>
+              <input
+                type="text"
+                class="form-control mb-2 mt-3"
+                id="branch"
+                name="branch"
+                placeholder="Enter Your Branch"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="startdate"><span>*</span> From </label>
+              <input
+                type="date"
+                class="form-control mb-2 mt-3"
+                id="startdate"
+                name="startdate"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="enddate"><span>*</span> To </label>
+              <input
+                type="date"
+                class="form-control mb-2 mt-3"
+                id="enddate"
+                name="enddate"
+                required
+              />
+            </div>
+      
+            <div class="form-group">
+              <label for="universitycity"><span>*</span> City</label>
+              <input
+                class="form-control mb-2 mt-3"
+                id="universitycity"
+                name="universitycity"
+                placeholder="Enter a university location"
+                required
+              />
+            </div>
+      
+            <br />
+          </div>
+       
+          <div class="faq-content">
+            <h2>Masters/Post Graduate Details</h2>
+      
+            <div class="form-group">
+              <label for="universityName">University College Name</label>
+              <input
+                type="text"
+                class="form-control mb-2 mt-3"
+                id="muniversityName"
+                name="muniversityName"
+                placeholder="Enter your university name"
+                
+              />
+            </div>
+            <div class="form-group">
+              <label for="mpercentage">Percentage % </label>
+              <input
+                type="number"
+                class="form-control mb-2 mt-3"
+                id="mpercentage"
+                placeholder="Enter your university Percentage"
+                name="mpercentage"
+                
+              />
+            </div>
+            <div class="form-group">
+              <label for="mbranch">Branch</label>
+              <input
+                type="text"
+                class="form-control mb-2 mt-3"
+                id="mbranch"
+                name="mbranch"
+                placeholder="Enter Your Branch"
+                
+              />
+            </div>
+            <div class="form-group">
+              <label for="mstartdate">From </label>
+              <input
+                type="date"
+                class="form-control mb-2 mt-3"
+                id="mstartdate"
+                name="mstartdate"
+                
+              />
+            </div>
+            <div class="form-group">
+              <label for="menddate">To </label>
+              <input
+                type="date"
+                class="form-control mb-2 mt-3"
+                id="menddate"
+                name="menddate"
+                
+              />
+            </div>
+      
+            <div class="form-group">
+              <label for="muniversitycity">City</label>
+              <input
+                class="form-control mb-2 mt-3"
+                id="muniversitycity"
+                name="muniversitycity"
+                placeholder="Enter a university location"
+                
+              />
+            </div>
+      
+            <br />
+              
+            </div>
+    
+       
+
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3><span class="num">3.</span> <span>Skills</span></h3>
+            <div class="faq-content">
+             
+      <div class="form-group">
+        <label for="skills">Skills</label>
+        <textarea
+          type="text"
+          class="form-control mb-2"
+          id="skills"
+          placeholder="Enter your skills seperated with comma , Avoid Spaces and Special Characters"
+          name="skills"
+          required
+        ></textarea>
+      </div>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3><span class="num">4.</span> <span>Internships</span></h3>
+            <div class="faq-content">
+              <div class="form-group">
+                <label for="i1">Internship-1 title</label>
+                <input
+                  type="text"
+                  class="form-control mb-2 mt-3"
+                  id="i1"
+                  placeholder="Enter your Internship-1 title"
+                  name="i1"
+                  
+                />
+              </div>
+        
+              <div class="form-group">
+                <label for="i1d">Internship-1 Description</label>
+                <textarea
+                  class="form-control mb-2 mt-3"
+                  id="i1d"
+                  name="i1d"
+                  rows="4"
+                  placeholder="Enter Internship-1 Description"
+                  
+                ></textarea>
+              </div>
+        
+              <div class="form-group">
+                <label for="i2">Internship-2 title</label>
+                <input
+                  type="text"
+                  class="form-control mb-2 mt-3"
+                  id="i2"
+                  placeholder="Enter your Internship-2 title"
+                  name="i2"
+                  
+                />
+              </div>
+        
+              <div class="form-group">
+                <label for="i2d">Internship-2 Description</label>
+                <textarea
+                  class="form-control mb-2 mt-3"
+                  id="i2d"
+                  name="i2d"
+                  rows="4"
+                  placeholder="Enter Internship-2 Description"
+                  
+                ></textarea>
+              </div>
+        
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+          <div class="faq-item">
+            <h3><span class="num">5.</span> <span>Projects</span></h3>
+            <div class="faq-content">
+             
+    
+      <div class="form-group">
+        <label for="p1">Project-1 title</label>
+        <input
+          type="text"
+          class="form-control mb-2 mt-3"
+          id="p1"
+          placeholder="Enter your project-1 title"
+          name="p1"
+          
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="p1d">Project-1 Description</label>
+        <textarea
+          class="form-control mb-2 mt-3"
+          id="p1d"
+          name="p1d"
+          rows="4"
+          placeholder="Enter Project-1 Description"
+          
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="p2">Project-2 title</label>
+        <input
+          type="text"
+          class="form-control mb-2 mt-3"
+          id="p2"
+          placeholder="Enter your project-2 title"
+          name="p2"
+          
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="p2d">Project-2 Description</label>
+        <textarea
+          class="form-control mb-2 mt-3"
+          id="p2d"
+          name="p2d"
+          rows="4"
+          placeholder="Enter Project-2 Description"
+          
+        ></textarea>
+      </div>
+
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+         
+
+          <div class="faq-item">
+            <h3><span class="num">7.</span> <span>Profile Links</span></h3>
+            <div class="faq-content">
+           
+              <div class="form-group">
+                <label for="github">Github</label>
+                <input
+                  type="text"
+                  class="form-control mb-2 mt-3"
+                  id="github"
+                  placeholder="Paste Your Github link"
+                  name="github"
+                />
+              </div>
+        
+              <div class="form-group">
+                <label for="linkedin">LinkedIn</label>
+                <input
+                  class="form-control mb-2 mt-3"
+                  id="linkedin"
+                  name="linkedin"
+                  placeholder="Paste Your LinkedIn link"
+                  
+                />
+              </div>
+              <div class="form-group">
+                <label for="facebook">Facebook</label>
+                <input
+                  class="form-control mb-2 mt-3"
+                  id="facebook"
+                  name="facebook"
+                  placeholder="Paste Your Facebook link"
+                  
+                />
+              </div>
+              <div class="form-group">
+                <label for="instagram">Instagram</label>
+                <input
+                  class="form-control mb-2 mt-3"
+                  id="instagram"
+                  name="instagram"
+                  placeholder="Paste Your Instagram link"
+                  
+                />
+              </div>
+              <div class="form-group">
+                <label for="role">Designation</label>
+                <input
+                  class="form-control mb-2 mt-3"
+                  id="role"
+                  name="role"
+                  placeholder="Designation Role"
+                  
+                />
+              </div>
+              <div class="form-group">
+                <label for="summary"><span>*</span> Tell me about yourself</label>
+                <textarea
+                  class="form-control mb-2 mt-3"
+                  id="summary"
+                  name="summary"
+                  rows="4"
+                 
+                  required
+                ></textarea>
+              </div>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div>
+
+        
+
+        </div>
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-success">Submit</button>
+      </div>
+      </div>
+    
+    </div>
+  
+  </div>
+ 
+</form>
+</section>
+
+
+
+
+
+  {% endblock body %}
+  
+
+
+</div>
+
+{% block Scripts %}
+
+
+  {% endblock Scripts %}

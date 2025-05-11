@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block title %}
+Self Assessment
+{% endblock title %}
+{% block body %}
+{% load mathfilters %}
+
+<div class="container mt-2">
+<h1 class="text-center">Welcome to Assessment</h1>
+{% include "messages.html" %}
+
+<form action="/assessmentsubmit/" method="post"> {% csrf_token %}
+  <input  type="hidden" value="{{start}}" name="start" />
+  <input  type="hidden" value="{{end}}" name="end" />
+  <input  type="hidden" value="{{title}}" name="title" />
+
+   {% for d in data %}
+   
+
+    <hr>
+
+<h3>{{d.id}} {{d.Questiontext|safe}}</h3>
+
+
+<div class="form-check">
+    <input class="form-check-input" type="radio" value="{{d.option1}}" name="option{{d.id}}" id="option1" required>
+    <label class="form-check-label" for="option1">
+      {{d.option1}}
+    </label>
+  </div>
+
+  
+
+<div class="form-check">
+    <input class="form-check-input" type="radio" value="{{d.option2}}"  name="option{{d.id}}" id="option2" required>
+    <label class="form-check-label" for="option2">
+      {{d.option2}}
+    </label>
+  </div>
+
+
+
+<div class="form-check">
+    <input class="form-check-input" value="{{d.option3}}"  type="radio" name="option{{d.id}}" id="option3" required>
+    <label class="form-check-label" for="option3" >
+      {{d.option3}}
+    </label>
+  </div>
+
+
+
+<div class="form-check">
+    <input class="form-check-input" type="radio" value="{{d.option4}}"  name="option{{d.id}}" id="option4" required>
+    <label class="form-check-label" for="option4" >
+      {{d.option4}}
+    </label>
+  </div>
+
+
+<div class="form-check">
+ 
+    <input class="form-check-input" type="radio" value="notAware"  name="option{{d.id}}" id="option4" required>
+    <label class="form-check-label" for="option4" >
+      Not Aware
+    </label>
+  </div>
+
+
+   
+
+
+
+  {% endfor %}
+  <br>
+<button type="submit" class="btn btn-success">Submit</button>
+<br>
+
+</form>
+
+
+</div>
+<br>
+
+{% endblock body %}

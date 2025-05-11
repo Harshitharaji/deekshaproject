@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% block title %}
+Home
+{% endblock title %}
+{% block firstSection %}
+  <!-- ======= Hero Section ======= -->
+  <div class="container" data-aos="zoom-in" data-aos-delay="100">
+    <!--<h1 class="text-center">W.B.L Cycle</h1>-->
+    {% include "messages.html" %}
+    <hr>
+
+    <div class="row">
+      <div class="col-md-4">
+        <a href="/createprofile/">
+        <div class="card border-info mb-3" >
+          <div class="card-header bg-info text-center text-light">Create e-portfolio</div>
+          <div class="card-body text-info">
+       
+            <p class="card-text">Helps to view the portfolio of the candidate</p>
+          </div>
+        </div>
+      </a>
+      </div>
+      <div class="col-md-4">
+        <a href="/selfassessment">
+        <div class="card border-primary mb-3" >
+          <div class="card-header bg-primary text-center text-light">Self Assessment</div>
+          <div class="card-body text-info">
+       
+            <p class="card-text">Helps to find strength and weakness of the candidate </p>
+          </div>
+        </div>
+      </a>
+      </div>
+      <div class="col-md-4">
+        <a href="/pdp">
+        <div class="card border-info mb-3" >
+          <div class="card-header bg-info text-center text-light">Personal Development Plan (P.D.P)</div>
+          <div class="card-body text-info">
+       
+            <p class="card-text">Plan which based assessment to undergo tasks and courses to improve work based learning </p>
+          </div>
+        </div>
+      </a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <a href="/advisorsupport">
+        <div class="card border-info mb-3" >
+          <div class="card-header bg-info text-center text-light">Advisor Support</div>
+          <div class="card-body text-info">
+       
+            <p class="card-text">A mentor who guides candidate to improve their core strength on technology and monitor their work </p>
+          </div>
+        </div>
+      </a>
+      </div>
+      <div class="col-md-6">
+
+        <div class="card border-primary mb-3" >
+          <a href="/dairyrecords">
+          <div class="card-header bg-primary text-center text-light">Dairy Recording</div>
+          <div class="card-body text-info">
+       
+            <p class="card-text">A mentor who checks candidate progress based on dairy recordings to suggest better plans</p>
+          </div>
+        </div>
+      </a>
+
+      </div>
+    </div>
+
+    </div>
+  </div><!-- End Hero -->
+
+{% endblock firstSection %}
+{% block body %}
+
+
+{% endblock body %}
+<!-- ======= Footer ======= -->
+{% block footer %}
+<footer id="footer">
+  <div class="container">
+    <div class="copyright">
+      &copy; Copyright <strong><span>Deeksha</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+  
+      Designed by <a href="/">Deeksha</a>
+    </div>
+  </div>
+</footer><!-- End  Footer -->
+{% endblock footer %}
